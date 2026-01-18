@@ -30,6 +30,6 @@ public class Main {
         paymentStrategy = new UpiPaymentStrategy();
         parkingLot.vacateSpot(ticket3, paymentStrategy);
         Ticket ticket4 = parkingLot.parkVehicle(car4);
-        Ticket ticket5 = parkingLot.parkVehicle(car4);
+        Ticket ticket5 = parkingLot.parkVehicle(car);
     }
 }

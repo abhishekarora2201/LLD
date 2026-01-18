@@ -14,18 +14,14 @@ public class ParkingLot {
         this.parkingFeeStrategy = parkingFeeStrategy;
     }
 
-    public ParkingSlot findSpot(VehichleType vehichleType){
-        return null;
-    }
-
     public Ticket parkVehicle(Vehicle vehicle) {
         ParkingSlot slot = slotAllocationStrategy.findSpot(vehicle.type, parkingSlots);
         if(slot == null){
-            System.out.println("Parking not possible");
+            System.out.println("Parking not possible for " + vehicle.licensePlate);
             return null;
         }
         Ticket ticket = new Ticket(slot.slotNumber, vehicle, slot);
-        System.out.println("Vehicle parked at slot number: " + slot.slotNumber);
+        System.out.println("Vehicle " + vehicle.licensePlate + " parked at slot number: " + slot.slotNumber);
         return ticket;
     }
 
