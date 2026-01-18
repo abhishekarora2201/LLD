@@ -8,11 +8,10 @@ public class ParkingLot {
     ParkingFeeStrategy parkingFeeStrategy;
     PaymentStrategy paymentStrategy;
 
-    public ParkingLot(List<ParkingSlot> parkingSlots, SlotAllocationStrategy slotAllocationStrategy, ParkingFeeStrategy parkingFeeStrategy, PaymentStrategy paymentStrategy){
+    public ParkingLot(List<ParkingSlot> parkingSlots, SlotAllocationStrategy slotAllocationStrategy, ParkingFeeStrategy parkingFeeStrategy){
         this.parkingSlots = parkingSlots;
         this.slotAllocationStrategy = slotAllocationStrategy;
         this.parkingFeeStrategy = parkingFeeStrategy;
-        this.paymentStrategy = paymentStrategy;
     }
 
     public ParkingSlot findSpot(VehichleType vehichleType){
@@ -30,7 +29,7 @@ public class ParkingLot {
         return ticket;
     }
 
-    public void vacateSpot(Ticket ticket) {
+    public void vacateSpot(Ticket ticket, PaymentStrategy paymentStrategy) {
         if(ticket ==  null)
         {
             System.out.println("Invalid Ticket");

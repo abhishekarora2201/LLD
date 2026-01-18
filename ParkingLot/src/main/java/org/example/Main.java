@@ -16,7 +16,7 @@ public class Main {
         PaymentStrategy paymentStrategy = new CashPaymentStrategy();
         ParkingFeeStrategy parkingFeeStrategy = new HourlyFeeStrategy();
 
-        ParkingLot parkingLot = new ParkingLot(parkingSlots, slotAllocationStrategy, parkingFeeStrategy, paymentStrategy);
+        ParkingLot parkingLot = new ParkingLot(parkingSlots, slotAllocationStrategy, parkingFeeStrategy);
 
         Vehicle car = new CarVehicle("CH01DB6622");
         Vehicle car2 = new CarVehicle("CH01DB6623");
@@ -25,8 +25,10 @@ public class Main {
 
         Ticket ticket = parkingLot.parkVehicle(car);
         Ticket ticket2 = parkingLot.parkVehicle(car2);
-        parkingLot.vacateSpot(ticket);
+        parkingLot.vacateSpot(ticket, paymentStrategy);
         Ticket ticket3 = parkingLot.parkVehicle(car3);
+        paymentStrategy = new UpiPaymentStrategy();
+        parkingLot.vacateSpot(ticket3, paymentStrategy);
         Ticket ticket4 = parkingLot.parkVehicle(car4);
         Ticket ticket5 = parkingLot.parkVehicle(car4);
     }
