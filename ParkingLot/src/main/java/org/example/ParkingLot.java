@@ -6,7 +6,6 @@ public class ParkingLot {
     List<ParkingSlot> parkingSlots;
     SlotAllocationStrategy slotAllocationStrategy;
     ParkingFeeStrategy parkingFeeStrategy;
-    PaymentStrategy paymentStrategy;
 
     public ParkingLot(List<ParkingSlot> parkingSlots, SlotAllocationStrategy slotAllocationStrategy, ParkingFeeStrategy parkingFeeStrategy){
         this.parkingSlots = parkingSlots;
